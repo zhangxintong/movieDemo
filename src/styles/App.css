@@ -1,11 +1,10 @@
 /* Base Application Styles */
 body {
-  color: #fff;
-  background: #222;
+  background: #333;
 }
 
 .index img {
-  margin: 40px auto;
+  margin: 20px auto 0px;
   border-radius: 4px;
   background: #fff;
   display: block;
@@ -18,4 +17,8 @@ body {
   border: 1px solid #000;
   border-width: 1px 0;
   background: #666;
+}
+.filmInfo{
+  width:600px;
+  margin: 0 auto;
 }
