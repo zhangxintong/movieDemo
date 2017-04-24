@@ -32,18 +32,7 @@ class FilmList extends React.Component{
 				"filmName":"金刚：骷髅岛",
 				"imgDesc":"44家影院上映  1523232人购票",
 				"score":"8.4"
-			},{
-				"imgName":"film6.jpg",
-				"filmName":"速度与激情8",
-				"imgDesc":"14家影院上映  1423232人购票",
-				"score":"9.7"
-			},{
-				"imgName":"film7.jpg",
-				"filmName":"速度与激情8",
-				"imgDesc":"14家影院上映  1423232人购票",
-				"score":"9.7"
-			}] 
-		 },
+			}],
 		 "will":[{
 		 	"imgName":"film6.jpg",
 			"filmName":"神秘家族",
@@ -53,6 +42,7 @@ class FilmList extends React.Component{
 			"filmName":"春娇救志明",
 			"date":"4月28日上映"
 		 }]
+		}
 		})
 
 	}
@@ -60,6 +50,7 @@ class FilmList extends React.Component{
 	render(){
 		let countId = 0;
 		return(
+		<div>
 			<div>
 			{
 				this.state.filmInfo.now.map((item) => {
@@ -78,10 +69,36 @@ class FilmList extends React.Component{
 				    })
 			}
 				<div className="more-button">
-					更多即将上映电影
+					更多热映电影
 				</div>
 
 			</div>
+			<div>
+				<div className="dividing-line">
+					<div className="upcoming">即将上映</div>
+					</div>
+					<div>
+						{
+							this.state.filmInfo.will.map((item)=>{
+								return <div key={"willFilm"+countId++}>
+								 <img className="img" src={"../images/filmImages/"+item.imgName} />
+								 <div className="will-desc">
+								 	<div className="col-xs-7 upcoming-left">
+								 		<div className="film-name">{item.filmName}</div>
+								 	</div>
+								 	<div className="col-xs-3">
+								 		<span className="showing-date">{item.date}</span>
+								 	</div>
+								 </div>
+								 </div>
+							})
+						}
+					</div>
+			 </div>
+			 <div className="more-button">
+			 	更多即将上映电影
+			 </div>
+		</div>
 			)
 	}
 }

@@ -1,6 +1,6 @@
 /* Base Application Styles */
 body {
-  background: #333;
+  background: #ddd;
 }
 
 .index img {
@@ -16,7 +16,7 @@ body {
   text-align: center;
   border: 1px solid #000;
   border-width: 1px 0;
-  background: #666;
+  background: #333;
 }
 .filmInfo{
   width:600px;
