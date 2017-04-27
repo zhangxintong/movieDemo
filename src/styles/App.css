@@ -2,7 +2,10 @@
 body {
   background: #ddd;
 }
-
+body, input, button, select, textarea, table {
+    font: 12px/1.5 Tahoma, Helvetica, Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, sans-serif;
+}
 .index img {
   margin: 20px auto 0px;
   border-radius: 4px;
@@ -21,4 +24,7 @@ body {
 .filmInfo{
   width:600px;
   margin: 0 auto;
+}
+.application-view {
+    padding: 50px 0 0;
 }

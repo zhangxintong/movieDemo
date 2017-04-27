@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 286018 */
-  src: url('//at.alicdn.com/t/font_f4cd57oic6jemi.eot');
-  src: url('//at.alicdn.com/t/font_f4cd57oic6jemi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_f4cd57oic6jemi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_f4cd57oic6jemi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_f4cd57oic6jemi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_5fbz6f8w4bxfxbt9.eot');
+  src: url('//at.alicdn.com/t/font_5fbz6f8w4bxfxbt9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_5fbz6f8w4bxfxbt9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_5fbz6f8w4bxfxbt9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_5fbz6f8w4bxfxbt9.svg#iconfont') format('svg');
 }
 
 .iconfont{
@@ -14,7 +14,6 @@
 	-webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale; 
-    padding-left:20px
 }
 #toolbar {
     background: #282828;
@@ -77,4 +76,10 @@
 }
 #nav-right .city i {
     font-size: 12px;
+}
+.user {
+    float: left;
+    font-size: 16px;
+    width: 48px;
+    text-align: center;
 }

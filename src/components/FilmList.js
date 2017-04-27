@@ -1,10 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var FilmInfo =require('./FilmInfo');
+var SwiperFilm = require("./SwiperFilm");
+
 import '../styles/FilmList.css';
 
 class FilmList extends React.Component{
 	constructor(props){
 		super(props);
+		this.changeSection = this.changeSection.bind(this);
 		this.state = ({
 			filmInfo:{
 				"now":[{
@@ -42,63 +46,84 @@ class FilmList extends React.Component{
 			"filmName":"春娇救志明",
 			"date":"4月28日上映"
 		 }]
-		}
+		},
+		changeSectionFlag:false
 		})
 
 	}
-
+	changeSection(){
+		this.setState({
+			changeSectionFlag:true
+		})
+	}
 	render(){
+		console.log("***filmList**");
+		console.log(this.state.changeSectionFlag);
 		let countId = 0;
-		return(
-		<div>
-			<div>
-			{
-				this.state.filmInfo.now.map((item) => {
-				    return <div key={"film" + countId++} >
-				    		<img className="img" src={"../images/filmImages/"+item.imgName} />
-				    		<div className="movieItem">
-					    		<div className="col-left left">
-						    		<div className="film-name">{item.filmName}</div>
-						    		<div className="count">{item.imgDesc}</div>
-					    		</div>
-					    		<div className="col-right">
-					    			<span className="score">{item.score}</span>
-					    		</div>
-					    	</div>
-				    		</div>
-				    })
-			}
-				<div className="more-button">
-					更多热映电影
-				</div>
+		let mainInfo = null;
+		if(this.state.changeSectionFlag ==false){
+			console.log("mianinfo **");
+			mainInfo=(
+				<div>
+					<div>
+					<SwiperFilm/>
+					{
+						this.state.filmInfo.now.map((item) => {
+						    return <div key={"film" + countId++} onClick={this.changeSection}>
+						    		<img className="img" src={"../images/filmImages/"+item.imgName} />
+						    		<div className="movieItem">
+							    		<div className="col-left left">
+								    		<div className="film-name">{item.filmName}</div>
+								    		<div className="count">{item.imgDesc}</div>
+							    		</div>
+							    		<div className="col-right">
+							    			<span className="score">{item.score}</span>
+							    		</div>
+							    	</div>
+						    		</div>
+						    })
+					}
+						<div className="more-button">
+							更多热映电影
+						</div>
 
-			</div>
-			<div>
-				<div className="dividing-line">
-					<div className="upcoming">即将上映</div>
 					</div>
 					<div>
-						{
-							this.state.filmInfo.will.map((item)=>{
-								return <div key={"willFilm"+countId++}>
-								 <img className="img" src={"../images/filmImages/"+item.imgName} />
-								 <div className="will-desc">
-								 	<div className="col-xs-7 upcoming-left">
-								 		<div className="film-name">{item.filmName}</div>
-								 	</div>
-								 	<div className="col-xs-3">
-								 		<span className="showing-date">{item.date}</span>
-								 	</div>
-								 </div>
-								 </div>
-							})
-						}
-					</div>
-			 </div>
-			 <div className="more-button">
-			 	更多即将上映电影
-			 </div>
-		</div>
+						<div className="dividing-line">
+							<div className="upcoming">即将上映</div>
+							</div>
+							<div>
+								{
+									this.state.filmInfo.will.map((item)=>{
+										return <div key={"willFilm"+countId++}>
+										 <img className="img" src={"../images/filmImages/"+item.imgName} />
+										 <div className="will-desc">
+										 	<div className="col-xs-7 upcoming-left">
+										 		<div className="film-name">{item.filmName}</div>
+										 	</div>
+										 	<div className="col-xs-3">
+										 		<span className="showing-date">{item.date}</span>
+										 	</div>
+										 </div>
+										 </div>
+									})
+								}
+							</div>
+					 </div>
+					 <div className="more-button">
+					 	更多即将上映电影
+					 </div>
+				</div>
+			)
+		}else{
+			console.log("FilmInfo***");
+			mainInfo=(<FilmInfo/>)
+		}
+		console.log({mainInfo});
+		return(
+			<div>
+			{mainInfo}
+			</div>
 			)
 	}
 }
