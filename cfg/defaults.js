@@ -1,3 +1,4 @@
+
 /**
  * Function that returns default values.
  * Used because Object.assign does a shallow instead of a deep copy.
@@ -9,7 +10,7 @@
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 8000;
-console.log(srcPath);
+
 /**
  * Get the default modules object for webpack
  * @return {Object}
@@ -26,7 +27,7 @@ function getDefaultModules() {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}'
       },
       {
         test: /\.sass/,
@@ -34,7 +35,7 @@ function getDefaultModules() {
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
@@ -45,12 +46,16 @@ function getDefaultModules() {
         loader: 'style-loader!css-loader!stylus-loader'
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2)$/,
+        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=8192'
       },
       {
         test: /\.(mp4|ogg|svg)$/,
         loader: 'file-loader'
+      },
+      {
+        test:/\.json$/,
+        loader:'json-loader'
       }
     ]
   };
