@@ -8,26 +8,24 @@ class Head extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			isOpen : this.props.initialIsOpen
+			isOpen : false
 		}
 		this.handleClick = this.handleClick.bind(this);
 	}
-	handleClick(e){
-		console.log("***handleClick**");
-		let newState = !this.state.isOpen;
+	handleClick(isOpen){
+		//console.log("***handleClick**");
+		//let state = isOpen;
+		let newState = this.props.handleClick(isopen);
 		this.setState({
-			isOpen:newState
+			isopen:newState
 		})
-	   this.props.callbackParent(newState);
-	    e.stopPropagation();
-	    e.preventDefault();
 	}
 	render(){
 		console.log(this.state.isOpen);
 		return(
 					<nav id="toolbar" className="notybar-upside">
 						<h1>
-							<a href="#" onClick={this.handleClick}>
+							<a href="#" isopen={this.state.isopen} onClick={this.handleClick}>
 								<div className="toolbar-title-icon">
 									<i className="iconfont icon-list">&#xe646;</i>
 								</div>

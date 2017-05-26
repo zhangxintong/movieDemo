@@ -6,7 +6,7 @@ var ReactDOM = require('react-dom');
 var FilmList = require("./FilmList");
 var Head =require("./Head");
 var SideBar = require("./SideBar");
-
+var Home = require("./Home");
 class AppComponent extends React.Component {
   constructor(props){
   	super(props);
@@ -28,7 +28,7 @@ class AppComponent extends React.Component {
    	<main>
       <div className="index">
       	<div className="application-head">
-      		<Head initialIsOpen={this.state.isOpen} callbackParent={this.onStateChanged}/>
+      		<Home/>
       	</div>
       	<div className="application-view">
 	      <section className="filmInfo">
